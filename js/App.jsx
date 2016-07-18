@@ -6,16 +6,35 @@ class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      'participants': [
-          {uuid: '45689', status: 'online', name: 'Martin', email: 'martin@gmail.com'},
-          {uuid: '89656', status: 'online', name: 'John', email: 'john@gmail.com'}
-      ]
+      'participants': []
     }
   }
+
+  getParticipants () {
+    this.setState({
+      'participants': [
+          {uuid: '45689', status: 'offline', name: 'Martin'},
+          {uuid: '89656', status: 'offline', name: 'John'}
+      ]
+    })
+  }
+
+  setParticipantOnline () {
+    this.setState({
+      'participants': [
+          {uuid: '45689', status: 'online', name: 'Martin'}
+      ]
+    })
+  }
+
+  componentDidMount () {
+    this.getParticipants()
+  }
+
   render () {
     return (
       <div>
-        <ParticipantsList participants={this.state.participants} />
+        <ParticipantsList participants={this.state.participants} setParticipantOnline={this.setParticipantOnline} />
       </div>
     )
   }
