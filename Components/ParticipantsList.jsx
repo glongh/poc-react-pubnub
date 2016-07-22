@@ -3,23 +3,31 @@ import Participant from './Participant'
 
 class ParticipantsList extends React.Component {
 
-  render () {
+  constructor (props) {
+    super(props)
+    this.state = {}
+  }
+
+  componentDidMount () {
     var participants = this.props.participants
-    var setParticipantOnline = this.props.setParticipantOnline
+    console.log(participants)
+    this.setState(participants)
+  }
+
+  render () {
+    var participants = this.state
     return (
       <div>
         {
-          participants.map((participant, index) => (
+          [participants].map((participant, index) => (
             <Participant participant={participant} key={index} />
         ))}
-        <div onClick={setParticipantOnline.bind(this)}>add</div>
       </div>
     )
   }
 }
 
 ParticipantsList.propTypes = {
-  setParticipantOnline: React.PropTypes.function,
   participants: React.PropTypes.arrayOf(React.PropTypes.object)
 }
 
