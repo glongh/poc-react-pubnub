@@ -4,7 +4,7 @@
 	"description":"Online presence component",
 	"dependencies": {
     	"font-awesome": "^4.3.0",
-    	"lodash": "^3.6.0",
+    	"lodash": "^4.17.19",
     	"react": "^15.2.1",
     	"react-dom": "^15.2.1",
     	"aliasify": "^1.7.2",
